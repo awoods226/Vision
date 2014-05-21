@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vision.Models;
 using Vision.DataAccessLayer;
+using Vision.ViewModels;
 
 namespace Vision.Controllers
 {
@@ -18,7 +19,16 @@ namespace Vision.Controllers
         // GET: /TrainingCompleted/
         public ActionResult Index()
         {
-            return View(db.TrainingCompleted.ToList());
+            var data = from p in db.TrainingCompleted
+                       select new Currency
+                       {
+                           DateApproved = DateTime.Now,
+                           DateLastCompleted = DateTime.Now,
+                           EventsRemaining = 5,
+                           NextDateDue = DateTime.Now.AddDays(100)
+                       };
+            
+            return View(data.ToList());
         }
 
         // GET: /TrainingCompleted/Details/5
