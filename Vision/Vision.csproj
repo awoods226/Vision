@@ -196,6 +196,10 @@
     <Compile Include="ViewModels\Currency.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\VisionContext.mdf" />
+    <Content Include="App_Data\VisionContext_log.ldf">
+      <DependentUpon>VisionContext.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -256,9 +260,7 @@
     <Content Include="Views\TrainingCompleted\Edit.cshtml" />
     <Content Include="Views\TrainingCompleted\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

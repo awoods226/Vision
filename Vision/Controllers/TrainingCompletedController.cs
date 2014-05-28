@@ -25,7 +25,7 @@ namespace Vision.Controllers
                            DateApproved = DateTime.Now,
                            DateLastCompleted = DateTime.Now,
                            EventsRemaining = 5,
-                           NextDateDue = DateTime.Now.AddDays(100)
+                           NextDateDue = DateTime.Now
                        };
             
             return View(data.ToList());
