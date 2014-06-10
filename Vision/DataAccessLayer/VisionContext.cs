@@ -18,6 +18,13 @@ namespace Vision.DataAccessLayer
         }
         public DbSet<TrainingEvent> TrainingEvents { get; set; }
         public DbSet<TrainingEventType> TrainingEventTypes { get; set; }
+        public DbSet<TrainingTable> TrainingTables { get; set; }
+        public DbSet<TrainingCompleted> TrainingCompleted { get; set; }
+        public DbSet<TrainingAssignment> TrainingAssignments { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Division> Divisions { get; set; }
+        
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

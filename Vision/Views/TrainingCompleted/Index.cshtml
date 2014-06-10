@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Vision.ViewModels.Currency>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Currency Data</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Event
+        </th>
+        <th>
+           Next Date Due
+        </th>
+        <th>
+            Events Remaining
+        </th>
+        <th>
+            Date Last Completed
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(m => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextDateDue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventsRemaining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateLastCompleted)
+        </td>
+    </tr>
+}
+
+</table>
