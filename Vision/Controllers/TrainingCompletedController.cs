@@ -19,14 +19,17 @@ namespace Vision.Controllers
         // GET: /TrainingCompleted/
         public ActionResult Index()
         {
-            var data = from p in db.TrainingCompleted
-                       select new Currency
-                       {
-                           DateApproved = DateTime.Now,
-                           DateLastCompleted = DateTime.Now,
-                           EventsRemaining = 5,
-                           NextDateDue = DateTime.Now
-                       };
+            //IQueryable<Currency> data = from p in db.TrainingCompleted
+            //           select new Currency
+            //           {
+            //               DateApproved = DateTime.Now,
+            //               DateLastCompleted = DateTime.Now,
+            //               EventsRemaining = 5,
+            //               NextDateDue = DateTime.Now,
+            //               EventName = p.TrainingEvent.Name
+            //           };
+
+            var data = Currency.RetrieveCurrencyForUser(User.Identity.Name);
             
             return View(data.ToList());
         }

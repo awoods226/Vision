@@ -4,24 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Currency Data</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UserId)
+            Event
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TrainingEventId)
+           Next Date Due
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateCompleted)
+            Events Remaining
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ApprovedByUserId)
+            Date Last Completed
         </th>
         <th></th>
     </tr>
@@ -29,21 +26,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.UserId)
+            @Html.DisplayFor(m => item.EventName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TrainingEventId)
+            @Html.DisplayFor(modelItem => item.NextDateDue)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateCompleted)
+            @Html.DisplayFor(modelItem => item.EventsRemaining)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ApprovedByUserId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.DisplayFor(modelItem => item.DateLastCompleted)
         </td>
     </tr>
 }

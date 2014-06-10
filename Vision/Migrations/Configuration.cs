@@ -78,7 +78,8 @@ namespace Vision.Migrations
                 new TrainingCompleted{UserId = user.Id, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,01,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Twelve Month Trainig Event 1").Id},
                 new TrainingCompleted{UserId = user.Id, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,05,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Twelve Month Trainig Event 2").Id}
             };
-
+            trainingCompletes.ForEach(s => context.TrainingCompleted.AddOrUpdate(s));
+            context.SaveChanges();
         }
     }
 }
