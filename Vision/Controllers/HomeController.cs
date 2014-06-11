@@ -26,5 +26,12 @@ namespace Vision.Controllers
 
             return View();
         }
+
+        public ActionResult Currency()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }

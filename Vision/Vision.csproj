@@ -260,7 +260,9 @@
     <Content Include="Views\TrainingCompleted\Edit.cshtml" />
     <Content Include="Views\TrainingCompleted\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Utility\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

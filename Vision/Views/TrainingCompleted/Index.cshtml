@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Currency Data</h2>
+<h2>Currency Status</h2>
 
 <table class="table">
     <tr>
@@ -15,10 +15,13 @@
            Next Date Due
         </th>
         <th>
-            Events Remaining
+            Amount Remaining
         </th>
         <th>
             Date Last Completed
+        </th>
+        <th>
+            Status
         </th>
         <th></th>
     </tr>
@@ -32,10 +35,13 @@
             @Html.DisplayFor(modelItem => item.NextDateDue)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EventsRemaining)
+            @Html.DisplayFor(modelItem => item.AmountRemaining)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateLastCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.currencyStatus)
         </td>
     </tr>
 }

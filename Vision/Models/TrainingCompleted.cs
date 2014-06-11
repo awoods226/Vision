@@ -24,7 +24,7 @@ namespace Vision.Models
             }
             using (var context = new VisionContext())
             {
-                return context.TrainingCompleted.Where(x => x.UserId == userId);
+                return context.TrainingCompleted.Where(x => x.UserId == userId).ToList();
             }
         }
     }

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Vision.Models;
 using Vision.DataAccessLayer;
 using Vision.ViewModels;
+using Microsoft.AspNet.Identity;
 
 namespace Vision.Controllers
 {
@@ -29,7 +30,7 @@ namespace Vision.Controllers
             //               EventName = p.TrainingEvent.Name
             //           };
 
-            var data = Currency.RetrieveCurrencyForUser(User.Identity.Name);
+            var data = Currency.RetrieveCurrencyForUser(User.Identity.GetUserId());
             
             return View(data.ToList());
         }

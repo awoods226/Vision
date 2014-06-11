@@ -63,20 +63,32 @@ namespace Vision.Migrations
 
             var trainingEvents = new List<TrainingEvent>
             {
-                new TrainingEvent{MonthInterval = 6, Name = "Test Six Month Trainig Event 1",TrainingEventTypeId=1, DateCreated=DateTime.Now, Id=1},
-                new TrainingEvent{MonthInterval = 6, Name = "Test Six Month Trainig Event 2",TrainingEventTypeId=1, DateCreated=DateTime.Now, Id=2},
-                new TrainingEvent{MonthInterval = 12, Name = "Test Twelve Month Trainig Event 1",TrainingEventTypeId=1, DateCreated=DateTime.Now, Id=3},
-                new TrainingEvent{MonthInterval = 12, Name = "Test Twelve Month Trainig Event 2",TrainingEventTypeId=1, DateCreated=DateTime.Now, Id=4}
+                new TrainingEvent{MonthInterval = 6, Name = "Test Six Month Trainig Event 1",TrainingEventTypeId=1, DateCreated=DateTime.Now, Id=1, AmountRequired = 3},
+                new TrainingEvent{MonthInterval = 6, Name = "Test Six Month Trainig Event 2",TrainingEventTypeId=1, DateCreated=DateTime.Now, Id=2, AmountRequired = 1},
+                new TrainingEvent{MonthInterval = 12, Name = "Test Twelve Month Trainig Event 1",TrainingEventTypeId=1, DateCreated=DateTime.Now, Id=3, AmountRequired = 6},
+                new TrainingEvent{MonthInterval = 12, Name = "Test Twelve Month Trainig Event 2",TrainingEventTypeId=1, DateCreated=DateTime.Now, Id=4, AmountRequired = 1}
             };
             trainingEvents.ForEach(s => context.TrainingEvents.AddOrUpdate(s));
+            context.SaveChanges();
+           
+            string awoods226 = "d7535b01-3569-47cf-8475-015e26056b63";
+
+            var trainingAssigns = new List<TrainingAssignment>
+            {
+                new TrainingAssignment{DateAssigned = new DateTime(2014,01,01), UserId = awoods226, TrainingEventId  = trainingEvents.Single(t => t.Name=="Test Six Month Trainig Event 1").Id},
+                new TrainingAssignment{DateAssigned = new DateTime(2014,01,01), UserId = awoods226, TrainingEventId  = trainingEvents.Single(t => t.Name=="Test Six Month Trainig Event 2").Id},
+                new TrainingAssignment{DateAssigned = new DateTime(2014,01,01), UserId = awoods226, TrainingEventId  = trainingEvents.Single(t => t.Name=="Test Twelve Month Trainig Event 1").Id},
+                new TrainingAssignment{DateAssigned = new DateTime(2014,01,01), UserId = awoods226, TrainingEventId  = trainingEvents.Single(t => t.Name=="Test Twelve Month Trainig Event 2").Id}
+            };
+            trainingAssigns.ForEach(s => context.TrainingAssignments.AddOrUpdate(s));
             context.SaveChanges();
 
             var trainingCompletes = new List<TrainingCompleted>
             {
-                new TrainingCompleted{UserId = user.Id, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,01,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Six Month Trainig Event 1").Id},
-                new TrainingCompleted{UserId = user.Id, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,05,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Six Month Trainig Event 2").Id},
-                new TrainingCompleted{UserId = user.Id, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,01,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Twelve Month Trainig Event 1").Id},
-                new TrainingCompleted{UserId = user.Id, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,05,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Twelve Month Trainig Event 2").Id}
+                new TrainingCompleted{UserId = awoods226, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,01,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Six Month Trainig Event 1").Id},
+                new TrainingCompleted{UserId = awoods226, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,05,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Six Month Trainig Event 2").Id},
+                new TrainingCompleted{UserId = awoods226, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,01,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Twelve Month Trainig Event 1").Id},
+                new TrainingCompleted{UserId = awoods226, ApprovedByUserId = user.Id, DateCompleted = new DateTime(2014,05,01), TrainingEventId = trainingEvents.Single(t => t.Name=="Test Twelve Month Trainig Event 2").Id}
             };
             trainingCompletes.ForEach(s => context.TrainingCompleted.AddOrUpdate(s));
             context.SaveChanges();

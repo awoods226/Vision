@@ -23,7 +23,7 @@ namespace Vision.Models
                 {
                     return null;
                 }
-                return context.TrainingAssignments.Where(x => x.UserId == userId);
+                return context.TrainingAssignments.Where(x => x.UserId == userId).ToList();
             }
         }
     }
